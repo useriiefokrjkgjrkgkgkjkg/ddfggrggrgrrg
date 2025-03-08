@@ -14,4 +14,4 @@
 - JavaScript (Animations API)
 
 ## Демо
-Посмотреть открытку можно [здесь](https://your-username.github.io/8-march-card/) 
+Посмотреть открытку можно [здесь](https://ddfggrggrgrrg.vercel.app/) 
