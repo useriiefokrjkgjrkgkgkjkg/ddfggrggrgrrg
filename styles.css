@@ -1,0 +1,251 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('https://imgur.com/OPhhQd2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.sparkles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.container {
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.greeting {
+    margin-bottom: 3rem;
+    animation: fadeIn 2s ease-in;
+    position: relative;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.decorative-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+    margin: 20px auto;
+    width: 80%;
+    animation: shimmer 2s infinite;
+}
+
+.greeting h1 {
+    font-size: 4.5rem;
+    background: linear-gradient(45deg, #ff69b4, #ff1493, #ff69b4);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 1rem 0;
+    animation: gradient 3s linear infinite;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.greeting p {
+    font-size: 1.8rem;
+    color: #fff;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.additional-message {
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards 1s;
+}
+
+.additional-message p {
+    font-size: 1.4rem;
+    color: #fff;
+    line-height: 1.8;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hearts {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+    height: 20px;
+    text-align: center;
+}
+
+.hearts::before {
+    content: '💝';
+    font-size: 2rem;
+    animation: heartBeat 1s infinite;
+}
+
+.flowers {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 3rem;
+}
+
+.flower {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.flower::before {
+    content: '🌸';
+    font-size: 4rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.flower:hover {
+    transform: scale(1.2) translateY(-10px);
+}
+
+.flower:hover .glow {
+    opacity: 1;
+    animation: pulse 2s infinite;
+}
+
+.flower:hover::before {
+    filter: brightness(1.2);
+}
+
+.flower-message {
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.flower:hover .flower-message {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+.flower1 { animation: float 4s ease-in-out infinite; }
+.flower2 { animation: float 4s ease-in-out infinite 1.3s; }
+.flower3 { animation: float 4s ease-in-out infinite 2.6s; }
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 200% 50%; }
+}
+
+@keyframes shimmer {
+    0% { opacity: 0.3; }
+    50% { opacity: 1; }
+    100% { opacity: 0.3; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.2); opacity: 0.2; }
+    100% { transform: scale(1); opacity: 0.5; }
+}
+
+@keyframes heartBeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .greeting {
+        padding: 1.5rem;
+    }
+
+    .greeting h1 {
+        font-size: 3rem;
+    }
+    
+    .greeting p {
+        font-size: 1.2rem;
+    }
+    
+    .additional-message p {
+        font-size: 1.1rem;
+    }
+    
+    .flowers {
+        flex-direction: column;
+        align-items: center;
+        gap: 4rem;
+    }
+    
+    .flower-message {
+        bottom: -25px;
+        font-size: 1rem;
+    }
+} 
