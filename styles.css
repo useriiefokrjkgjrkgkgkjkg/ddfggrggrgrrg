@@ -108,6 +108,8 @@ body {
     justify-content: center;
     gap: 4rem;
     margin-top: 3rem;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .flower {
@@ -239,9 +241,10 @@ body {
     }
     
     .flowers {
-        flex-direction: column;
-        align-items: center;
-        gap: 4rem;
+        flex-direction: row;
+        justify-content: center;
+        gap: 2rem;
+        padding: 0 1rem;
     }
     
     .flower-message {

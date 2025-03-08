@@ -1,0 +1,9 @@
+{
+  "name": "8-march-card",
+  "version": "1.0.0",
+  "description": "Красивая анимированная открытка к 8 марта",
+  "scripts": {
+    "start": "npx serve",
+    "build": "echo 'No build required'"
+  }
+} 
